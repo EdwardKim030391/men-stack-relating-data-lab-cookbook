@@ -1,0 +1,18 @@
+<%- include('../partials/_navbar.ejs') %>
+<h1>My Pantry</h1>
+<ul>
+  <% if (foods.length) { %>
+    <% foods.forEach(food => { %>
+      <li>
+        <%= food.name %>
+        <form method="POST" action="/users/<%= user._id %>/foods/<%= food._id %>?_method=DELETE">
+          <button type="submit">Delete</button>
+        </form>
+        <a href="/users/<%= user._id %>/foods/<%= food._id %>/edit">Edit</a>
+      </li>
+    <% }) %>
+  <% } else { %>
+    <p>No items in pantry.</p>
+  <% } %>
+</ul>
+<a href="/users/<%= user._id %>/foods/new">Add New Item</a>

@@ -1,0 +1,7 @@
+<%- include('../partials/_navbar.ejs') %>
+<h1>Add New Item</h1>
+<form method="POST" action="/users/<%= user._id %>/foods">
+  <label for="name">Item Name:</label>
+  <input type="text" id="name" name="name" required />
+  <button type="submit">Add Item</button>
+</form>
